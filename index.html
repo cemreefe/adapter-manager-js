@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adapter Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Adapter Manager</h1>
+        <div id="adapter-list-view">
+            <h2>Adapters</h2>
+            <div id="adapter-list"></div>
+            <div class="center">
+                <button onclick="showCreateForm()">Add New Adapter</button>
+                <button onclick="downloadAdapters()">Download Adapters</button>
+            </div>
+            <br>
+            <label>Upload your adapters</label>
+            <input type="file" accept=".json" onchange="uploadAdapters(event)">
+            <h3>Check Merge</h3>
+            <form onsubmit="checkMerge(event)">
+                <label for="merge-end1">From:</label>
+                <select id="merge-end1" required></select>
+                <label for="merge-end2">To:</label>
+                <select id="merge-end2" required></select>
+                <button type="submit">Check</button>
+            </form>
+            <p id="merge-result"></p>
+        </div>
+        
+        <div id="adapter-details-view" style="display: none;">
+            <h2>Adapter Details</h2>
+            <p id="adapter-ends"></p>
+            <button onclick="showListView()">Back to List</button>
+        </div>
+        
+        <div id="create-adapter-view" style="display: none;">
+            <h2>Create New Adapter</h2>
+            <form onsubmit="createAdapter(event)">
+                <label for="end1">End 1:</label>
+                <select id="end1" required></select>
+                <label for="end2">End 2:</label>
+                <select id="end2" required></select>
+                <button type="submit">Create Adapter</button>
+            </form>
+            <button onclick="showListView()">Cancel</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
